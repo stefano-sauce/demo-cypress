@@ -1,0 +1,32 @@
+# https://docs.saucelabs.com/web-apps/automated-testing/cypress/
+# https://docs.saucelabs.com/web-apps/automated-testing/cypress/yaml/v1/
+apiVersion: v1
+kind: cypress
+sauce:
+  region: eu-central-1 # or us-west-1
+  concurrency: 100
+  metadata:
+    tags:
+      - cypress
+      - default
+    build: "config-ex1 $CURRENT_TIME"
+cypress:
+  version: package.json # See https://docs.saucelabs.com/web-apps/automated-testing/cypress/#supported-testing-platforms for a list of supported versions.
+  configFile: "cypress.config.js" # We determine related files based on the location of the config file.
+# Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
+rootDir: ./
+suites:
+  - name: "Cypress Chrome"
+    browser: "chrome"
+    platformName: "Windows 11"
+    screenResolution: "1920x1080"  # (optional)
+    config:
+      specPattern: [ "cypress/e2e/saucedemo/**/*.*" ] # Cypress native glob support.
+
+# Controls what artifacts to fetch when the suites have finished.
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/

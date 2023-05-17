@@ -54,7 +54,7 @@ More information about the Sauce Labs saucectl can be found
 
 ## Examples:
 
-All below mentioned examples can be found in the [`.sauce`](./.sauce)-folder. You can run the configurations by running
+All below mentioned examples can be found in the [`.sauce`](./.sauce/)-folder. You can run the configurations by running
 the following command from the root of this folder
 
       saucectl run --config ./.sauce/config-ex{#}.yml

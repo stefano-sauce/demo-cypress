@@ -14,7 +14,9 @@
     "test.sauce.ex3.us": "CURRENT_TIME=$(date +%s) npx saucectl run --region us-west-1 --ccy 25 -c ./.sauce/config-ex3.yml",
     "test.sauce.ex3.eu": "CURRENT_TIME=$(date +%s) npx saucectl run --ccy 25 -c ./.sauce/config-ex3.yml",
     "test.sauce.ex4.us": "CURRENT_TIME=$(date +%s) npx saucectl run --region us-west-1 --ccy 5 -c ./.sauce/config-ex4.yml",
-    "test.sauce.ex4.eu": "CURRENT_TIME=$(date +%s) npx saucectl run --ccy 5 -c ./.sauce/config-ex4.yml"
+    "test.sauce.ex4.eu": "CURRENT_TIME=$(date +%s) npx saucectl run --ccy 5 -c ./.sauce/config-ex4.yml",
+    "test.sauce.ex5.us": "CURRENT_TIME=$(date +%s) npx saucectl run --region us-west-1 --ccy 5 -c ./.sauce/config-ex5.yml",
+    "test.sauce.ex5.eu": "CURRENT_TIME=$(date +%s) npx saucectl run --ccy 5 -c ./.sauce/config-ex5.yml"
   },
   "author": "",
   "license": "MIT",
