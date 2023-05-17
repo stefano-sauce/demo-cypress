@@ -85,3 +85,8 @@ splits the tests by using "shard" property with the value "spec" so that they ca
 
 [`config-ex4.yml`](./.sauce/config-ex4.yml) run all tests on different Chrome versions where saucectl automatically
 splits the tests by using "shard" property with the value "shard" so that they can easily run in parallel.
+
+### Example 5 - retries failed spec
+
+[`config-ex5.yml`](./.sauce/config-ex5.yml) run the login tests that include the login.failed.cy spec with a failed test. Use the retries property to rerun the failed spec.
+
