@@ -17,11 +17,9 @@ cypress:
   configFile: "cypress.config.js" # We determine related files based on the location of the config file.
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
-suite:
+suites:
   # Chrome
   - name: "Swag Labs Login Tests"
-    smartRetry:
-      failedOnly: true
     browser: "chrome"
     platformName: "Windows 10"
     config:

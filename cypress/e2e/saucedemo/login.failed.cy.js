@@ -9,7 +9,14 @@ describe('login page', () => {
 
   it('should be able to login with a standard user', () => {
     // This is not the correct username so the test should fail
-    cy.get('#user-name').type('wrong_user');
+    let swag_user = Cypress.env('WRONG_SWAG_USER')
+    if (Boolean(swag_user) == false) {
+      swag_user = 'empty_user';
+  }
+
+    console.log('swag user is: ' + swag_user);
+
+    cy.get('#user-name').type(swag_user);
     cy.get('#password').type('secret_sauce');
     cy.get('.btn_action').click();
     cy.get('.inventory_list').should('be.visible');
