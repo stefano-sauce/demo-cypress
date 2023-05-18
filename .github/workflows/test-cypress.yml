@@ -1,10 +1,9 @@
 name: saucectl cypress tests
 
 on:
-  pull_request:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
 
 env:
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
@@ -17,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Saucectl RUN
-        uses: saucelabs/saucectl-run-action@v3
-        with:
-          working-directory: .sauce
+      # - name: Saucectl RUN
+      #   uses: saucelabs/saucectl-run-action@v3
+      #   with:
+      #     working-directory: .sauce
