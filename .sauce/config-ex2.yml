@@ -22,6 +22,7 @@ suites:
     screenResolution: "1920x1080"  # (optional)
     config:
       specPattern: [ "cypress/e2e/saucedemo/**/*.*" ] # Cypress native glob support.
+      excludeSpecPattern: [ "cypress/e2e/**/login.failed.cy.js" ]
       # use split by spec when you have more concurrency than specs
       #use split by concurrency when you have more specs than available concurrency
     shard: spec
