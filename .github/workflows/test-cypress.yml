@@ -8,6 +8,7 @@ on:
 env:
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
   main:
@@ -16,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # - name: Saucectl RUN
-      #   uses: saucelabs/saucectl-run-action@v3
-      #   with:
-      #     working-directory: .sauce
+      - name: Saucectl RUN
+        uses: saucelabs/saucectl-run-action@v3
+        with:
+          working-directory: .sauce
