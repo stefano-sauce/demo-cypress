@@ -20,4 +20,4 @@ jobs:
       - name: Saucectl RUN
         uses: saucelabs/saucectl-run-action@v3
         with:
-          working-directory: .sauce
+          config-file: .sauce/config-ex2.yml
