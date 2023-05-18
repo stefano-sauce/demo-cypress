@@ -9,7 +9,7 @@ describe('login page', () => {
 
   it('should be able to login with a standard user', () => {
     // This is not the correct username so the test should fail
-    let swag_user = Cypress.env('WRONG_SWAG_USER')
+    let swag_user = Cypress.env('SWAG_USER')
     if (Boolean(swag_user) == false) {
       swag_user = 'empty_user';
   }
