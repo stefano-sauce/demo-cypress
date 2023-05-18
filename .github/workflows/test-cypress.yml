@@ -17,6 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Write secrets to the cypress.env.json file
+        run: |
+          echo '{"WRONG_SWAG_USER": "${{secrets.SWAG_USER}}"}' > cypress.env.json  
+
       - name: Saucectl RUN example2
         uses: saucelabs/saucectl-run-action@v3
         with:

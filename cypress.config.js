@@ -6,7 +6,4 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
-  env: {
-    WRONG_SWAG_USER: 'wrong_user',
-  },
 });
