@@ -1,4 +1,4 @@
-name: saucectl cypress tests
+name: saucectl cypress tests with sys env
 
 on:
   push:
