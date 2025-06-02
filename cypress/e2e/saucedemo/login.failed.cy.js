@@ -11,7 +11,7 @@ describe('login page', () => {
     // This is not the correct username so the test should fail
     let swag_user = Cypress.env('SWAG_USER')
     if (Boolean(swag_user) == false) {
-      swag_user = 'empty_user';
+      swag_user = 'standard_user';
   }
 
     console.log('swag user is: ' + swag_user);
