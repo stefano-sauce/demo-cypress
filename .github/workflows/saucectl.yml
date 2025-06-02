@@ -25,5 +25,17 @@ jobs:
 
 
 
-      - name: Run saucectl
-        run: saucectl run
+      - name: Run saucectl with example config 1
+        run: saucectl run -c .sauce/config-ex1.yml
+
+      - name: Run saucectl with example config 2
+        run: saucectl run -c .sauce/config-ex2.yml
+
+      - name: Run saucectl with example config 3
+        run: saucectl run -c .sauce/config-ex3.yml
+
+      - name: Run saucectl with example config 4
+        run: saucectl run -c .sauce/config-ex4.yml
+      
+      - name: Run saucectl with example config 5
+        run: saucectl run -c .sauce/config-ex5.yml
