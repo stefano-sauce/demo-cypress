@@ -9,6 +9,7 @@
 
 ## Introduction
 
+
 This repository will hold multiple examples on how to run Cypress tests locally and with the
 [Sauce Labs saucectl CLI](https://docs.saucelabs.com/dev/cli/saucectl/).
 
