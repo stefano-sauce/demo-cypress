@@ -17,10 +17,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Saucectl
+      - name: Install Saucectl (official script)
         run: |
-          curl -L https://saucelabs.github.io/saucectl/install | bash
+          curl -L https://saucelabs.github.io/saucectl/install | bash -s -- -b $HOME/.sauce/bin
           echo "$HOME/.sauce/bin" >> $GITHUB_PATH
+          $HOME/.sauce/bin/saucectl --version
+
+
 
       - name: Run saucectl
         run: saucectl run
