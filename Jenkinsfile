@@ -1,50 +1,34 @@
-// Example Jenkins pipeline with Cypress
-// Jenkins Setup:
-// Before start jenkins, create some volume to store configurations and data for jenkins
-
-// docker volume create jenkins-data
-
-// Start Jenkins command line by line:
-//  - run as "root" user (insecure, contact your admin to configure user and groups!)
-//  - run Docker in disconnected mode
-//  - name running container "blue-ocean"
-//  - map port 8080 with Jenkins UI
-//  - map volumes for Jenkins data, NPM and Cypress caches
-//  - pass Docker socket which allows Jenkins to start worker containers
-//  - download and execute the latest BlueOcean Docker image
-
-// docker run \
-//   -u root \
-//   -d \
-//   --name blue-ocean \
-//   -p 8080:8080 \
-//   -v jenkins-data:/var/jenkins_home \
-//   -v /var/run/docker.sock:/var/run/docker.sock \
-//   jenkinsci/blueocean:latest
-
-// If it meets docker permission issue with jenkins user,
-// it can be modified by adding jenkins to docker group.
-
-// ** You can setup a node to run the test. Running test on master will encounter into docker in docker issue. **
-
 pipeline {
-  agent any
-
-  environment {
-    // it can load the record key variable from credentials store
-    // see https://jenkins.io/doc/book/using/using-credentials/
-    // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
-    SAUCE_USERNAME = credentials('SAUCE_USERNAME')
-    SAUCE_ACCESS_KEY = credentials('SAUCE_ACCESS_KEY')
-  }
-
-  stages {
+    agent any
+    environment {
+        SAUCE_USERNAME = credentials('SAUCE_USERNAME')
+        SAUCE_ACCESS_KEY = credentials('SAUCE_ACCESS_KEY')
+        PATH = "/usr/local/bin:/opt/homebrew/bin:$PATH"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM',
+                          branches: [[name: '*/main']],
+                          userRemoteConfigs: [[url: 'https://github.com/stefano-sauce/demo-cypress',
+                             credentialsId: 'ae053389-695e-4cef-bb11-0be4b5c06010']]])
+            }
+        }
+        stage('Install saucectl') {
+            steps {
+                sh '''
+                    curl -L https://saucelabs.github.io/saucectl/install | bash
+                    export PATH=$PATH:$HOME/.sauce/bin
+                    saucectl --version
+                '''
+            }
+        }
+          stages {
     stage('run') {
       steps {
         // This step trigger the test
         echo 'Run Sauce Cypress Pipeline Test'
-        sh 'npm install saucectl'
-        sh 'npx saucectl run'
+        sh 'saucectl run'
       }
     }
   }
