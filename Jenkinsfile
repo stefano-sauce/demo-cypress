@@ -28,7 +28,7 @@ pipeline {
                 echo 'Run Sauce Cypress Pipeline Test'
                 sh '''
                     export PATH=$PATH:$HOME/.sauce/bin
-                    saucectl run --config .sauce/config-ext1.yml
+                    saucectl run --config .sauce/config-ex1.yml
                 '''
             }
         }
