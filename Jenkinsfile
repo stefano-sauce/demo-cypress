@@ -22,7 +22,7 @@ pipeline {
                     saucectl --version
                 '''
             }
-        }
+        
           stages {
     stage('run') {
       steps {
