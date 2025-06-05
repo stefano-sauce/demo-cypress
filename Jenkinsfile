@@ -27,7 +27,7 @@ pipeline {
             steps {
                 sh '''
                     export PATH=$PATH:$HOME/.sauce/bin
-                    saucectl run
+                    saucectl run --config config-ext1.yml
                 '''
             }
         }
