@@ -22,14 +22,15 @@ pipeline {
                     saucectl --version
                 '''
             }
-        
-          stages {
-    stage('run') {
-      steps {
-        // This step trigger the test
-        echo 'Run Sauce Cypress Pipeline Test'
-        sh 'saucectl run'
-      }
+        }
+        stage('Run saucectl tests') {
+            steps {
+                echo 'Run Sauce Cypress Pipeline Test'
+                sh '''
+                    export PATH=$PATH:$HOME/.sauce/bin
+                    saucectl run --config .sauce/config-ext1.yml
+                '''
+            }
+        }
     }
-  }
 }
