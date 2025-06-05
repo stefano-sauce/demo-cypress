@@ -10,7 +10,7 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM',
                           branches: [[name: '*/main']],
-                          userRemoteConfigs: [[url: 'https://github.com/stefano-sauce/demo-python-main',
+                          userRemoteConfigs: [[url: 'https://github.com/stefano-sauce/demo-cypress',
                              credentialsId: 'ae053389-695e-4cef-bb11-0be4b5c06010']]])
             }
         }
