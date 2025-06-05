@@ -10,6 +10,9 @@ sauce:
     tags:
       - cypress
       - cross-version
+      - config-ex4
+      - github-action
+      - saucectl
     build: "config-ex4 $CURRENT_TIME"
 cypress:
   version: package.json

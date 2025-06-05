@@ -10,6 +10,9 @@ sauce:
     tags:
       - cypress
       - cross-browser
+      - saucectl
+      - config-ex5
+      - github-action
     build: "config-ex5 $CURRENT_TIME"
   retries: 1  
 cypress:

@@ -8,7 +8,9 @@ sauce:
   metadata:
     tags:
       - cypress
-      - default
+      - config-ex2
+      - github-action
+      - saucectl
     build: "config-ex2 $CURRENT_TIME"
 cypress:
   version: package.json
